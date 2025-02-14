@@ -1,84 +1,45 @@
-var quotes = JSON.parse(localStorage.getItem("quotes")) || [
+// Store quotes in key value pairs
+
+let quotes = [
   {
-    text: "The only limit to our realization of tomorrow is our doubts of today.",
-    author: "Franklin D. Roosevelt"
+    text: "Intelligence is the ability to adapt to change.",
+    author: "Stephen Hawking"
   },
   {
-    text: "Do not wait to strike till the iron is hot, but make it hot by striking.",
-    author: "William Butler Yeats"
+    text: "What we know matters, but who we are matters more.",
+    author: "Martin Luther King Jr."
   },
   {
-    text: "The future belongs to those who believe in the beauty of their dreams.",
-    author: "Eleanor Roosevelt"
+    text: "There is no charm equal to tenderness of heart.",
+    author: "Jane Austen"
   },
   {
-    text: "In the middle of every difficulty lies opportunity.",
-    author: "Albert Einstein"
+    text: "The world will ask you who you are, and if you don't know, the world will tell you.",
+    author: "Carl Jung"
   },
   {
-    text: "Success is not final, failure is not fatal: It is the courage to continue that counts.",
-    author: "Winston Churchill"
+    text: "Be yourself; everyone else is already taken.",
+    author: "Oscar Wilde"
   },
   {
-    text: "Life is 10% what happens to us and 90% how we react to it.",
-    author: "Charles R. Swindoll"
+    text: "It is impossible to live without failing at something, unless you live so cautiously that you might as well not have lived at all.",
+    author: "J.K. Rowling."
   },
   {
-    text: "The best way to predict the future is to create it.",
-    author: "Peter Drucker"
+    text: "Twenty years from now you will be more disappointed by the things that you didn't do than by the ones you did do.",
+    author: "H. Jackson Brown Jr."
   },
   {
-    text: "It always seems impossible until it’s done.",
-    author: "Nelson Mandela"
+    text: "Integrity is doing the right thing, even when no one is watching.",
+    author: "C.S. Lewis."
   },
   {
-    text: "Keep your face always toward the sunshine—and shadows will fall behind you.",
-    author: "Walt Whitman"
+    text: "The secret of getting ahead is getting started.",
+    author: "Mark Twain"
   }
 ];
-
+// Store the array in Local Storage
 localStorage.setItem("quotes", JSON.stringify(quotes));
 
-function getRandomQuote() {
-  var randomIndex = Math.floor(Math.random() * quotes.length);
-  return quotes[randomIndex];
-}
-
-function displayQuote() {
-  var randomQuote = getRandomQuote();
-  document.querySelector(".quote").innerText = "“" + randomQuote.text + "”";
-  document.querySelector(".author").innerText = "- " + randomQuote.author;
-}
-
-document.addEventListener("DOMContentLoaded", function () {
-  displayQuote();
-});
-
-document
-  .querySelector(".generate-button")
-  .addEventListener("click", function () {
-    displayQuote();
-  });
-
-document
-  .querySelector(".add-quotes-button")
-  .addEventListener("click", function () {
-    var newQuoteText = document
-      .querySelector('input[placeholder="New Quote"]')
-      .value.trim();
-    var newAuthor = document.querySelector("#name").value.trim();
-
-    if (newQuoteText === "" || newAuthor === "") {
-      alert("Please enter both a quote and an author name.");
-      return;
-    }
-
-    var newQuote = { text: newQuoteText, author: newAuthor };
-    quotes.push(newQuote);
-    localStorage.setItem("quotes", JSON.stringify(quotes));
-
-    document.querySelector('input[placeholder="New Quote"]').value = "";
-    document.querySelector("#name").value = "";
-
-    alert("Quote added successfully!");
-  });
+// Retrieve the array and parse it back to JavaScript objects
+let storedQuotes = JSON.parse(localStorage.getItem("quotes"));
