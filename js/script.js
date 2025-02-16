@@ -43,3 +43,17 @@ localStorage.setItem("quotes", JSON.stringify(quotes));
 
 // Retrieve the array and parse it back to JavaScript objects
 let storedQuotes = JSON.parse(localStorage.getItem("quotes"));
+
+// Function to get a random quote
+function getRandomQuote() {
+  const randomIndex = Math.floor(Math.random() * quotes.length);
+  const randomQuote = quotes[randomIndex];
+
+  // Update the quote text and author in the HTML
+  document.querySelector(".quote").innerText = `“${randomQuote.text}”`;
+  document.querySelector(".author").innerText = `- ${randomQuote.author}`;
+}
+// Add event listener to the button
+document
+  .querySelector(".generate-button")
+  .addEventListener("click", getRandomQuote);
