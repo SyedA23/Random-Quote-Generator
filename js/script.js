@@ -57,3 +57,24 @@ function getRandomQuote() {
 document
   .querySelector(".generate-button")
   .addEventListener("click", getRandomQuote);
+
+// Function to add a new quote
+function addNewQuote() {
+  const quoteText = document.getElementById("new-quote").value.trim();
+  const quoteAuthor = document.getElementById("name").value.trim();
+
+  if (quoteText === "" || quoteAuthor === "") {
+    alert("Please enter both quote and author!");
+    return;
+  }
+
+  let quotes = getQuotes();
+  quotes.push({ quote: quoteText, author: quoteAuthor });
+  localStorage.setItem("quotes", JSON.stringify(quotes));
+
+  document.getElementById("new-quote").value = "";
+  document.getElementById("name").value = "";
+
+  alert("Quote added successfully!");
+  displayQuote(); // Show the new quote
+}
