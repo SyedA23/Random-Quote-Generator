@@ -1,5 +1,5 @@
 // Store quotes in key value pairs
-
+// if (!localStorage.getItem("quotes")){
 let quotes = [
   {
     text: "Intelligence is the ability to adapt to change.",
@@ -36,6 +36,11 @@ let quotes = [
   {
     text: "The secret of getting ahead is getting started.",
     author: "Mark Twain"
+  },
+
+  {
+    text: "Do what you can, with what you have, where you are.",
+    author: "Theodore Roosevelt"
   }
 ];
 // Store the array in Local Storage
@@ -46,8 +51,8 @@ let storedQuotes = JSON.parse(localStorage.getItem("quotes"));
 
 // Function to get a random quote
 function getRandomQuote() {
-  const randomIndex = Math.floor(Math.random() * quotes.length);
-  const randomQuote = quotes[randomIndex];
+  const randomIndex = Math.floor(Math.random() * storedQuotes.length);
+  const randomQuote = storedQuotes[randomIndex];
 
   // Update the quote text and author in the HTML
   document.querySelector(".quote").innerText = `“${randomQuote.text}”`;
@@ -57,6 +62,15 @@ function getRandomQuote() {
 document
   .querySelector(".generate-button")
   .addEventListener("click", getRandomQuote);
+
+function getQuotes() {
+  let storedQuotes = localStorage.getItem("quotes"); // Get data from localStorage
+  if (storedQuotes) {
+    return JSON.parse(storedQuotes); // Convert JSON string to an array
+  } else {
+    return []; // Return an empty array if no quotes are found
+  }
+}
 
 // Function to add a new quote
 function addNewQuote() {
@@ -68,13 +82,15 @@ function addNewQuote() {
     return;
   }
 
-  let quotes = getQuotes();
-  quotes.push({ quote: quoteText, author: quoteAuthor });
-  localStorage.setItem("quotes", JSON.stringify(quotes));
+  let quotes = getQuotes(); // Get existing quotes
+  let newQuote = { text: quoteText, author: quoteAuthor }; // Create a new quote object
+  quotes.push(newQuote); // Add new quote to the array
 
+  localStorage.setItem("quotes", JSON.stringify(quotes)); // Store updated quotes
+
+  // Clear input fields after adding a quote
   document.getElementById("new-quote").value = "";
   document.getElementById("name").value = "";
 
   alert("Quote added successfully!");
-  displayQuote(); // Show the new quote
 }
