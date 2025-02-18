@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: #f8f9fa;
+  background-color: #f1f3f5;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,8 +14,7 @@ body {
 
 .container {
   width: 100%;
-  background: #fff;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #f1f3f5;
   text-align: center;
 }
 
@@ -49,7 +48,7 @@ body {
 
 h1 {
   margin: 20px 0;
-  font-size: 24px;
+  font-size: 36px;
 }
 
 .quote-container {
@@ -57,34 +56,37 @@ h1 {
 }
 
 .quote-box {
-  background-color: #f1f3f5;
-  padding: 20px;
+  background-color: #fff;
+  padding: 30px;
   margin: 20px 0;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .quote {
-  font-size: 20px;
+  background-color: #f1f3f5;
+  border-radius: 5px;
+  padding: 50px;
+  font-size: 24px;
   font-weight: bold;
-  margin-bottom: 10px;
 }
 
 .author {
   text-align: right;
   font-size: 14px;
-  color: #555;
+  font-weight: bold;
 }
 
 .generate-button,
 .add-quotes-button {
   background-color: #ffc107;
   border: none;
-  padding: 10px;
+  padding: 20px;
   width: 100%;
   margin: 10px 0;
   border-radius: 5px;
   cursor: pointer;
+  font-size: 20px;
   font-weight: bold;
   border: 1px solid #000;
 }
@@ -110,10 +112,11 @@ label {
 
 input[type="text"] {
   width: 100%;
-  padding: 10px;
+  padding: 20px;
   border: 1px solid #2e2e2e;
   border-radius: 5px;
   font-weight: bold;
+  font-size: 20px;
   margin-top: 5px;
 }
 
