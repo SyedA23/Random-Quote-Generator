@@ -88,7 +88,6 @@ function addNewQuote() {
     return;
   }
 
-  // let quotes = getQuotes(); // Get existing quotes
   let newQuote = { text: quoteText, author: quoteAuthor };
   console.log(newQuote);
   // Create a new quote object
